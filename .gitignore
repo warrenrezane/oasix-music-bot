@@ -117,3 +117,7 @@ guild.json
 # Volta
 .pnp.cjs
 .pnp.loader.mjs
+
+# Package
+package-lock.json
+.env
