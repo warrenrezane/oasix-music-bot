@@ -1,4 +1,5 @@
 const { MessageEmbed } = require("discord.js");
+const botconfig = require("../botconfig");
 
 module.exports = {
   name: "disconnect",
@@ -30,7 +31,11 @@ module.exports = {
       );
     await client.sendTime(message.channel, ":notes: | **Disconnected!**");
     await message.react("✅");
-    player.destroy();
+
+    // Wait for nth mins before disconnect
+    setTimeout(() => {
+      player.destroy();
+    }, botconfig.disconnectMinutes);
   },
 
   SlashCommand: {
